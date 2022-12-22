@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+  labels:
+    chart: backend
+spec:
+  selector:
+    matchLabels:
+      app: "backend-selector"
+  template:
+    metadata:
+      labels:
+        app: "backend-selector"
+    spec:
+      containers:
+      - name: backend
+        image: "{{ .Values.backend.image.repository }}/{{ .Values.backend.image.tag }}"
+        imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: {{ .Values.backend.service.servicePort }}
+          initialDelaySeconds: {{ .Values.backend.livenessProbe.initialDelaySeconds}}
+          periodSeconds: {{ .Values.backend.livenessProbe.periodSeconds}}
+        ports:
+        - containerPort: {{ .Values.backend.service.servicePort}}
+        env:
+          - name: POSTGRES_USERNAME
+            value : "{{ .Values.postgresql.global.postgresql.postgresqlUsername }}"
+          - name: POSTGRES_PASSWORD
+            value: "{{ .Values.postgresql.global.postgresql.postgresqlPassword }}"
+          - name: POSTGRES_HOST
+            value: {{ .Release.Name }}-postgresql
+          - name: POSTGRES_DB
+            value: "{{ .Values.postgresql.global.postgresql.postgresqlDatabase }}"
+          - name: POSTGRES_PORT
+            value: {{ .Values.postgresql.global.postgresql.servicePort }}
+          - name: URL
+            value: "http://localhost"
+          - name: JWT_SECRET
+            value: "{{ .Values.backend.service.secret}}"
+          - name: AWS_BUCKET
+            value: "arn:aws:s3:::hessahlocal"
+          - name: AWS_REGION
+            value: "us-east-1"
+          - name: AWS_PROFILE
+            value: "default"
+          - name: ACCESS_KEY_ID
+            value: "AKIAYCILPZR6HLQMWAUW"
+          - name: SECRET_ACCESS_KEY
+            value: "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"

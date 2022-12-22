@@ -1,0 +1,23 @@
+---
+apiVersion: v2
+name: mywebapp
+description: Simple helm chart for simple backend and frontend code deployment
+type: application
+version: 0.0.1
+appVersion: "1.0.0"
+kubeVersion: ">= 1.21.0-0"
+keywords:
+  - nodejs
+  - expressjs
+  - angularjs
+maintainers:
+  - name: Emmanuel Ephraim
+    email: emmaetuk@outlook.com
+dependencies:
+  - name: postgresql
+    version: "12.1.4"
+    repository: https://charts.bitnami.com/bitnami
+    condition: postgresql.enabled
+  - name: nginx-ingress-controller
+    version: "9.3.22"
+    repository: https://charts.bitnami.com/bitnami

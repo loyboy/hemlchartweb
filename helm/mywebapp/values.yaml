@@ -1,0 +1,50 @@
+# Frontend section
+frontend:
+  replicaCount: 1
+  revisionHistoryLimit: 1
+  image:
+    repository: frontendimage 
+    tag: frontendimage:v1.0.0
+    pullPolicy: IfNotPresent
+    resources:
+      requests:
+        cpu: 200m
+        memory: 300Mi
+  livenessProbe:
+    initialDelaySeconds: 30
+    periodSeconds: 10
+  service:
+    name: frontend
+    type: NodePort
+    servicePort: 4200
+
+# Backend section
+backend:
+  replicaCount: 1
+  revisionHistoryLimit: 1
+  image:
+    repository: backendimage
+    tag: backendimage:v1.0.0
+    pullPolicy: IfNotPresent
+    resources:
+      requests:
+        cpu: 200m
+        memory: 300Mi
+  livenessProbe:
+    initialDelaySeconds: 30
+    periodSeconds: 10
+  service:
+    name: backend
+    type: NodePort
+    servicePort: 8080
+    secret: mysecretstring
+    
+# Postgre section     
+postgresql:
+  enabled: true
+  global:
+    postgresql:
+      postgresqlDatabase: postgre
+      postgresqlPassword: local
+      postgresqlUsername: postgre
+      servicePort: 5432
