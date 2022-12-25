@@ -3,8 +3,8 @@ frontend:
   replicaCount: 1
   revisionHistoryLimit: 1
   image:
-    repository: frontendimage 
-    tag: frontendimage:v1.0.0
+    repository: loyboi600
+    tag: mywebappfrontend:v1.0.0
     pullPolicy: IfNotPresent
     resources:
       requests:
@@ -23,8 +23,8 @@ backend:
   replicaCount: 1
   revisionHistoryLimit: 1
   image:
-    repository: backendimage
-    tag: backendimage:v1.0.0
+    repository: loyboi600
+    tag: mywebappbackend:v1.0.0
     pullPolicy: IfNotPresent
     resources:
       requests:

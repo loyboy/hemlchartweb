@@ -19,7 +19,7 @@ spec:
         imagePullPolicy: {{ .Values.backend.image.pullPolicy }}
         livenessProbe:
           httpGet:
-            path: /health
+            path: "/api/v0"
             port: {{ .Values.backend.service.servicePort }}
           initialDelaySeconds: {{ .Values.backend.livenessProbe.initialDelaySeconds}}
           periodSeconds: {{ .Values.backend.livenessProbe.periodSeconds}}
@@ -31,11 +31,11 @@ spec:
           - name: POSTGRES_PASSWORD
             value: "{{ .Values.postgresql.global.postgresql.postgresqlPassword }}"
           - name: POSTGRES_HOST
-            value: {{ .Release.Name }}-postgresql
+            value: "{{ .Release.Name }}-postgresql"
           - name: POSTGRES_DB
             value: "{{ .Values.postgresql.global.postgresql.postgresqlDatabase }}"
           - name: POSTGRES_PORT
-            value: {{ .Values.postgresql.global.postgresql.servicePort }}
+            value: "{{ .Values.postgresql.global.postgresql.servicePort }}"
           - name: URL
             value: "http://localhost"
           - name: JWT_SECRET

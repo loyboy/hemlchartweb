@@ -1,4 +1,3 @@
----
 apiVersion: v2
 name: mywebapp
 description: Simple helm chart for simple backend and frontend code deployment
