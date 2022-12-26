@@ -5,9 +5,8 @@ metadata:
 spec:
   ports:
   - name: http
-    protocol: TCP
-    port: 9000
-    targetPort: {{ .Values.backend.service.servicePort }}
+    port: {{ .Values.backend.service.servicePort }}
+    nodePort: 9000
   type: {{ .Values.backend.service.type }}
   selector:
     app: "backend-selector"
