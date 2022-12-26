@@ -6,7 +6,7 @@ spec:
   ports:
   - name: http
     port: {{ .Values.frontend.service.servicePort }}
-    nodePort: 8080
+    nodePort: 30000
   type: {{ .Values.frontend.service.type }}
   selector:
     app: "frontend-selector"
