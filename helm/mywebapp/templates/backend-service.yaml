@@ -6,7 +6,7 @@ spec:
   ports:
   - name: http
     port: {{ .Values.backend.service.servicePort }}
-    nodePort: 9000
+    nodePort: 30222
   type: {{ .Values.backend.service.type }}
   selector:
     app: "backend-selector"
