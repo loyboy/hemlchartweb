@@ -19,7 +19,7 @@ spec:
         imagePullPolicy: {{ .Values.frontend.image.pullPolicy }}
         livenessProbe:
           httpGet:
-            path: "/home"
+            path: "/index.html"
             port: {{ .Values.frontend.service.servicePort }}
           initialDelaySeconds: {{ .Values.frontend.livenessProbe.initialDelaySeconds}}
           periodSeconds: {{ .Values.frontend.livenessProbe.periodSeconds}}
