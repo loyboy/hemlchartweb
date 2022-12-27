@@ -4,13 +4,12 @@ metadata:
   name: my-ingress
 spec:
   rules:
-  - host: mywebapp.local
-    http:
+  - http:
       paths:
-      - path: "/"
+      - path: "/home"
         pathType: Prefix
         backend:
           service:
-            name: backend-service
+            name: frontend-service
             port:
-              number: 80
+              number: 4200
