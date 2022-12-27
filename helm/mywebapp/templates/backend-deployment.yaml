@@ -29,7 +29,7 @@ spec:
           - name: POSTGRES_USERNAME
             value : "{{ .Values.postgresql.global.postgresql.postgresqlUsername }}"
           - name: POSTGRES_PASSWORD
-            value: ""
+            value: "root"
           - name: POSTGRES_HOST
             value: "{{ .Release.Name }}-postgresql"
           - name: POSTGRES_DB
