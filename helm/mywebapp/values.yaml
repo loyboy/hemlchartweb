@@ -46,4 +46,5 @@ postgresql:
     postgresql:
       postgresqlDatabase: postgres
       postgresqlUsername: postgres
+      postgresqlPassword: ''
       servicePort: 5432
