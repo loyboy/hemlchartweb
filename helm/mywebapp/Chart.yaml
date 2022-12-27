@@ -14,7 +14,7 @@ maintainers:
     email: emmaetuk@outlook.com
 dependencies:
   - name: postgresql
-    version: "12.1.4"
+    version: "11.6.2"
     repository: https://charts.bitnami.com/bitnami
     condition: postgresql.enabled
   - name: nginx-ingress-controller
