@@ -4,8 +4,7 @@ metadata:
   name: "backend-service"
 spec:
   ports:
-  - name: http
-    port: {{ .Values.backend.service.servicePort }}
+  - port: {{ .Values.backend.service.servicePort }}
     nodePort: 30222
   type: {{ .Values.backend.service.type }}
   selector:
