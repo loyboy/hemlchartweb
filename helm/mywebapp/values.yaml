@@ -44,7 +44,8 @@ postgresql:
   enabled: true
   global:
     postgresql:
-      postgresqlDatabase: postgres
-      postgresqlUsername: postgres
-      postgresqlPassword: ''
+      auth:
+        username: postgresuser
+        database: postgresdb
+        password: postgres
       servicePort: 5432
