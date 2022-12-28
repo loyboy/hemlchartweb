@@ -42,9 +42,5 @@ backend:
 # Postgre section     
 postgresql:
   enabled: true
-  global:
-    postgresql:
-      username: postgres
-      database: postgres
-      password: localpass
-      servicePort: 5432
+  auth:
+    postgresPassword: localpass
