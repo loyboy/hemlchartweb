@@ -27,15 +27,15 @@ spec:
         - containerPort: {{ .Values.backend.service.servicePort}}
         env:
           - name: POSTGRES_USERNAME
-            value : "{{ .Values.postgresql.global.postgresql.username }}"
+            value : "postgres"
           - name: POSTGRES_PASSWORD
-            value: "{{ .Values.postgresql.global.postgresql.password }}"
+            value: "{{ .Values.postgresql.auth.postgresPassword }}"
           - name: POSTGRES_HOST
             value: "{{ .Release.Name }}-postgresql"
           - name: POSTGRES_DB
-            value: "{{ .Values.postgresql.global.postgresql.database }}"
+            value: "postgres"
           - name: POSTGRES_PORT
-            value: "{{ .Values.postgresql.global.postgresql.servicePort }}"
+            value: "5432"
           - name: URL
             value: "http://localhost"
           - name: JWT_SECRET
