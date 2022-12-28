@@ -43,4 +43,4 @@ backend:
 postgresql:
   enabled: true
   auth:
-    postgresPassword: localpass
+    postgresPassword: "localpass"
