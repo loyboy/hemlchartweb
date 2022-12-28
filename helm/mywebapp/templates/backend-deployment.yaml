@@ -27,13 +27,13 @@ spec:
         - containerPort: {{ .Values.backend.service.servicePort}}
         env:
           - name: POSTGRES_USERNAME
-            value : "{{ .Values.postgresql.global.postgresql.auth.username }}"
+            value : "{{ .Values.postgresql.global.postgresql.username }}"
           - name: POSTGRES_PASSWORD
-            value: {{ .Values.postgresql.global.postgresql.auth.password }}
+            value: "{{ .Values.postgresql.global.postgresql.password }}"
           - name: POSTGRES_HOST
             value: "{{ .Release.Name }}-postgresql"
           - name: POSTGRES_DB
-            value: "{{ .Values.postgresql.global.postgresql.auth.database }}"
+            value: "{{ .Values.postgresql.global.postgresql.database }}"
           - name: POSTGRES_PORT
             value: "{{ .Values.postgresql.global.postgresql.servicePort }}"
           - name: URL
